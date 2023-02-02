@@ -47,13 +47,12 @@ class ViewController: UIViewController {
         
         sender.backgroundColor = #colorLiteral(red: 0.7549748421, green: 1, blue: 0.8084700108, alpha: 1)
         sender.setTitleColor(.black, for: .normal)
-        
     }
     
     
     //enum 적용
     private func setUserChoiceWithEnum(choice:String){
-        switch choice{
+        switch choice {
             case "가위": userChoice = Rps(rawValue:2)!
             case "바위": userChoice = Rps(rawValue:0)!
             case "보": userChoice = Rps(rawValue:1)!
