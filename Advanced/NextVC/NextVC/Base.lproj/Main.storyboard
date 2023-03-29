@@ -38,11 +38,11 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="StoryBoard with Code">
+                                        <state key="normal" title="Storyboard with Code">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="storyBoardWithCodeBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4H0-Sh-RDI"/>
+                                            <action selector="storyboardWithCodeBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cNz-Hr-49U"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="11T-iJ-ldv">
@@ -50,11 +50,11 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="StoryBoard with Segue">
+                                        <state key="normal" title="Storyboard with Segue">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="storyBoardWithSegueBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nrf-xT-x1F"/>
+                                            <action selector="storyboardWithSegueBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wf2-2f-x2k"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oTg-C9-bjR">
@@ -62,9 +62,12 @@
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="StoryBoard with Button Segue">
+                                        <state key="normal" title="Storyboard with Button Segue">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="m7t-Gd-8wp" kind="presentation" identifier="toWithDirectSegueVC" id="4pb-P4-EPM"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -80,10 +83,154 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cCF-Z9-Pdf" secondAttribute="trailing" constant="30" id="seY-gN-uI3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="V0e-70-xZk" kind="presentation" identifier="toWithSegueVC" id="Tb4-LO-OR6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="4"/>
+        </scene>
+        <!--Storyboard With Segue View Controller-->
+        <scene sceneID="IbR-f5-2PO">
+            <objects>
+                <viewController id="V0e-70-xZk" customClass="StoryboardWithSegueViewController" customModule="NextVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kge-4x-ZWL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StoryboardWithSegueVC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV4-sc-rR9">
+                                <rect key="frame" x="78" y="379.66666666666669" width="237" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xti-eY-ciz">
+                                <rect key="frame" x="161.66666666666666" y="649" width="70" height="34"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="aqQ-KE-vGp"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtnTapped:" destination="9n0-le-VLY" eventType="touchUpInside" id="mQ7-YS-UTd"/>
+                                    <action selector="backBtnTapped:" destination="V0e-70-xZk" eventType="touchUpInside" id="qXQ-ZR-ly9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="VvE-1d-FlB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="SV4-sc-rR9" firstAttribute="centerX" secondItem="Kge-4x-ZWL" secondAttribute="centerX" id="G17-Cf-dcA"/>
+                            <constraint firstItem="SV4-sc-rR9" firstAttribute="centerY" secondItem="Kge-4x-ZWL" secondAttribute="centerY" id="Pic-fS-Ys7"/>
+                            <constraint firstItem="xti-eY-ciz" firstAttribute="centerX" secondItem="Kge-4x-ZWL" secondAttribute="centerX" id="V5a-6j-F0k"/>
+                            <constraint firstItem="VvE-1d-FlB" firstAttribute="bottom" secondItem="xti-eY-ciz" secondAttribute="bottom" constant="100" id="fyf-ZF-I1s"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="SV4-sc-rR9" id="XSy-pa-APF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zWZ-13-CrD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="75"/>
+        </scene>
+        <!--Storyboard With Direct Segue View Controller-->
+        <scene sceneID="o3v-bF-Imq">
+            <objects>
+                <viewController id="m7t-Gd-8wp" customClass="StoryboardWithDirectSegueViewController" customModule="NextVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zuh-wc-SMO">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StoryboardWithDirectSegueVC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCf-B8-ANj">
+                                <rect key="frame" x="49.666666666666657" y="379.66666666666669" width="294" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-S2-BXW">
+                                <rect key="frame" x="161.66666666666666" y="649" width="70" height="34"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="u1o-u6-f8S"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtnTapped:" destination="9n0-le-VLY" eventType="touchUpInside" id="4sa-wO-GUJ"/>
+                                    <action selector="backBtnTapped:" destination="V0e-70-xZk" eventType="touchUpInside" id="5aZ-BE-qSU"/>
+                                    <action selector="backBtnTapped:" destination="m7t-Gd-8wp" eventType="touchUpInside" id="sR4-mh-u8w"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PE2-sf-rTU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PE2-sf-rTU" firstAttribute="bottom" secondItem="7ST-S2-BXW" secondAttribute="bottom" constant="100" id="4AW-Ii-iwP"/>
+                            <constraint firstItem="hCf-B8-ANj" firstAttribute="centerX" secondItem="zuh-wc-SMO" secondAttribute="centerX" id="AJo-6i-Llt"/>
+                            <constraint firstItem="hCf-B8-ANj" firstAttribute="centerY" secondItem="zuh-wc-SMO" secondAttribute="centerY" id="IhJ-ff-TxJ"/>
+                            <constraint firstItem="7ST-S2-BXW" firstAttribute="centerX" secondItem="zuh-wc-SMO" secondAttribute="centerX" id="vWm-oJ-oaC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="hCf-B8-ANj" id="vJF-tO-qbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hv5-HJ-mbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="981" y="814"/>
+        </scene>
+        <!--Storyboard With Code View Controller-->
+        <scene sceneID="oHG-8a-C7K">
+            <objects>
+                <viewController storyboardIdentifier="storyboardWithCodeVC" id="9n0-le-VLY" customClass="StoryboardWithCodeViewController" customModule="NextVC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hkY-gm-qff">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StoryboardWithCodeVC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3j-XF-ASj">
+                                <rect key="frame" x="83" y="414" width="227" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NP4-z2-PfU">
+                                <rect key="frame" x="161.66666666666666" y="684" width="70" height="34"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="uw7-Wc-nsi"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtnTapped:" destination="9n0-le-VLY" eventType="touchUpInside" id="rzG-46-gzI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iMv-IC-8Q6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iMv-IC-8Q6" firstAttribute="bottom" secondItem="NP4-z2-PfU" secondAttribute="bottom" constant="100" id="Bnv-LG-BSx"/>
+                            <constraint firstItem="V3j-XF-ASj" firstAttribute="centerX" secondItem="hkY-gm-qff" secondAttribute="centerX" id="PHy-EH-Haw"/>
+                            <constraint firstItem="NP4-z2-PfU" firstAttribute="centerX" secondItem="hkY-gm-qff" secondAttribute="centerX" id="ejH-SV-jrh"/>
+                            <constraint firstItem="V3j-XF-ASj" firstAttribute="centerY" secondItem="hkY-gm-qff" secondAttribute="centerY" id="w0p-4d-FRx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainLabel" destination="V3j-XF-ASj" id="edE-Qg-sSW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UGw-PA-SVc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="-586"/>
         </scene>
     </scenes>
     <resources>

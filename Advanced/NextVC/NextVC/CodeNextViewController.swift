@@ -7,9 +7,9 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class CodeNextViewController: UIViewController {
     
-    lazy private var mainLabel:UILabel = {
+    lazy var mainLabel:UILabel = {
         let label = UILabel()
         label.text = "FirstViewController"
         label.font = .systemFont(ofSize: 22)
@@ -37,8 +37,8 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.mainLabel.text = someString
         configureUI()
+        print(someString)
     }
     
     @objc func backButtonTapped(){
@@ -56,6 +56,7 @@ class FirstViewController: UIViewController {
     
     func configureUI(){
         view.backgroundColor = .white
+        if let someString {self.mainLabel.text = someString}
         setAutoLayout()
     }
     
@@ -71,6 +72,7 @@ class FirstViewController: UIViewController {
             backButton.heightAnchor.constraint(equalToConstant: 40),
             backButton.widthAnchor.constraint(equalToConstant: 100)
         ])
+        
     }
     
 
