@@ -41,24 +41,29 @@ class ViewController: UIViewController {
     // 3. 스토리보드에서의 화면 이동(간접 세그웨이)
     @IBAction func storyboardWithSegueBtnTapped(_ sender: UIButton) {
         print(#function)
-        performSegue(withIdentifier: "toWithSegueVC", sender: self)
+        performSegue(withIdentifier: "toWithSegueVC", sender: self) // 간접 세그웨이의 경우에만 호출해줘야함
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toWithSegueVC" {
-            guard let storyboardWithSegueVC = segue.destination as? StoryboardWithSegueViewController else {return}
-            storyboardWithSegueVC.someString = "Twitter"
-            storyboardWithSegueVC.modalPresentationStyle = .fullScreen
-            storyboardWithSegueVC.modalTransitionStyle = .flipHorizontal
-        } else if segue.identifier == "toWithDirectSegueVC" {
-            guard let storyboardWithDirectSegueVC = segue.destination as? StoryboardWithDirectSegueViewController else {return}
-            storyboardWithDirectSegueVC.someString = "Palantir"
-            storyboardWithDirectSegueVC.modalPresentationStyle = .fullScreen
-            storyboardWithDirectSegueVC.modalTransitionStyle = .partialCurl
-            
+        switch segue.identifier {
+            case "toWithSegueVC":
+                guard let storyboardWithSegueVC = segue.destination as? StoryboardWithSegueViewController else {return}
+                storyboardWithSegueVC.someString = "Twitter"
+                storyboardWithSegueVC.modalPresentationStyle = .fullScreen
+                storyboardWithSegueVC.modalTransitionStyle = .flipHorizontal
+            case "toWithDirectSegueVC":
+                guard let storyboardWithDirectSegueVC = segue.destination as? StoryboardWithDirectSegueViewController else {return}
+                storyboardWithDirectSegueVC.someString = "Palantir"
+                storyboardWithDirectSegueVC.modalPresentationStyle = .fullScreen
+                storyboardWithDirectSegueVC.modalTransitionStyle = .partialCurl
+            default:return
         }
-        
-        
+    }
+    
+    // 4. 직접 세그웨이인 경우에만(Action 요소에 세그웨이 직접 연결) 실행되는 메소드
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print(identifier)
+        return identifier == "" ? false : true
     }
     
     

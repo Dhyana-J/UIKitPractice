@@ -21,9 +21,7 @@ class StoryboardWithDirectSegueViewController: UIViewController {
     
     func setUI(){
         mainLabel.font = .systemFont(ofSize: 25)
-        if let someString {
-            mainLabel.text = someString
-        }
+        mainLabel.text = someString
     }
     
     @IBAction func backBtnTapped(_ sender: UIButton) {

@@ -20,7 +20,7 @@ class StoryboardWithCodeViewController: UIViewController {
     
     func setUI(){
         mainLabel.font = .systemFont(ofSize: 30)
-        if let someString { mainLabel.text = someString }
+        mainLabel.text = someString
     }
 
     @IBAction func backBtnTapped(_ sender: UIButton) {

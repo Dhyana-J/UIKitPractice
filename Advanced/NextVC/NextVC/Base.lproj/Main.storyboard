@@ -165,7 +165,7 @@
                                 <connections>
                                     <action selector="backBtnTapped:" destination="9n0-le-VLY" eventType="touchUpInside" id="4sa-wO-GUJ"/>
                                     <action selector="backBtnTapped:" destination="V0e-70-xZk" eventType="touchUpInside" id="5aZ-BE-qSU"/>
-                                    <action selector="backBtnTapped:" destination="m7t-Gd-8wp" eventType="touchUpInside" id="sR4-mh-u8w"/>
+                                    <action selector="backBtnTapped:" destination="m7t-Gd-8wp" eventType="touchUpInside" id="HiB-Xk-Nfs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,7 +179,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainLabel" destination="hCf-B8-ANj" id="vJF-tO-qbF"/>
+                        <outlet property="mainLabel" destination="hCf-B8-ANj" id="dqV-ZS-wNM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hv5-HJ-mbN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

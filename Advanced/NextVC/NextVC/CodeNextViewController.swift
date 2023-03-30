@@ -56,7 +56,7 @@ class CodeNextViewController: UIViewController {
     
     func configureUI(){
         view.backgroundColor = .white
-        if let someString {self.mainLabel.text = someString}
+        mainLabel.text = someString
         setAutoLayout()
     }
     
