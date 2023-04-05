@@ -16,7 +16,7 @@ final class ViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-
+    
     
     lazy var heightStackview:UIStackView = {
         let sv = UIStackView(arrangedSubviews: [heightLabel,heightTextField])
@@ -45,7 +45,7 @@ final class ViewController: UIViewController {
         sv.spacing = CGFloat(15)
         return sv
     }()
-
+    
     lazy var weightLabel:UILabel = {
         let label = UILabel()
         label.text = "몸무게"
@@ -140,19 +140,23 @@ final class ViewController: UIViewController {
     }
     
     @objc func calculateBtnTapped(_ sender:UIButton){
-        guard isInputsAreValid() else {
+        guard let height = heightTextField.text,
+              let weight = weightTextField.text,
+              isInputsAreValid(height:height,weight: weight) else {
             print("invalid input")
             return
         }
+        
         guard let resultBMIVC = storyboard?.instantiateViewController(withIdentifier: "bmiResultVC") as? BMIResultViewController else {return}
-        resultBMIVC.bmi = 1.11
+        resultBMIVC.bmi = calculateBMI(height: heightTextField.text!, weight: weightTextField.text!)
         resultBMIVC.modalPresentationStyle = .fullScreen
+        
         self.present(resultBMIVC, animated: true)
         resetTextFields()
     }
     
-    func isInputsAreValid()->Bool{
-        if heightTextField.text == "" || weightTextField.text == "" {
+    func isInputsAreValid(height:String,weight:String)->Bool{
+        if height == "" || weight == "" {
             mainLabel.text = "키와 몸무게를 반드시 입력해야합니다"
             mainLabel.textColor = .red
             return false
@@ -166,25 +170,36 @@ final class ViewController: UIViewController {
         [weightTextField,heightTextField].forEach {$0.text = ""}
     }
     
+    // BMI = kg/(m*m)
+    func calculateBMI(height:String,weight:String)->Double{
+        guard let h = Double(height), let w = Double(weight) else {return 0.00}
+        let bmi = w/pow(h/100,2) // kg/(m*m)
+        let optimizedBMI = round(bmi*100)/100
+        return optimizedBMI
+    }
+    
+    
+    
+    
     
     //MARK: - Segue로 구현했다면 (버튼에 직접적으로 Segue를 연결했을 경우)
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if heightTextField.text == "" || weightTextField.text == "" {
-            mainLabel.text = "키와 몸무게를 반드시 입력해야합니다"
-            mainLabel.textColor = .red
-            return false
-        }
-        mainLabel.text = "키와 몸무게를 입력해 주세요"
-        mainLabel.textColor = .black
-        return true
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SEGUE_IDENTIFIER"{
-            guard let resultVC = segue.destination as? BMIResultViewController else {return}
-            resultVC.bmi = 1.11
-        }
-    }
+    //    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+    //        if heightTextField.text == "" || weightTextField.text == "" {
+    //            mainLabel.text = "키와 몸무게를 반드시 입력해야합니다"
+    //            mainLabel.textColor = .red
+    //            return false
+    //        }
+    //        mainLabel.text = "키와 몸무게를 입력해 주세요"
+    //        mainLabel.textColor = .black
+    //        return true
+    //    }
+    //
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "SEGUE_IDENTIFIER"{
+    //            guard let resultVC = segue.destination as? BMIResultViewController else {return}
+    //            resultVC.bmi = 1.11
+    //        }
+    //    }
     
     
 }
