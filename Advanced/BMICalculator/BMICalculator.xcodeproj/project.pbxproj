@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F10BC7D29E2AE7800C28067 /* BMICalculatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F10BC7C29E2AE7800C28067 /* BMICalculatorManager.swift */; };
 		8F2E44D129D54B99002D5E95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E44D029D54B99002D5E95 /* AppDelegate.swift */; };
 		8F2E44D329D54B99002D5E95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E44D229D54B99002D5E95 /* SceneDelegate.swift */; };
 		8F2E44D529D54B99002D5E95 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E44D429D54B99002D5E95 /* ViewController.swift */; };
@@ -14,9 +15,11 @@
 		8F2E44DA29D54B9B002D5E95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F2E44D929D54B9B002D5E95 /* Assets.xcassets */; };
 		8F2E44DD29D54B9B002D5E95 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2E44DB29D54B9B002D5E95 /* LaunchScreen.storyboard */; };
 		8FB3D91F29D6E07A002D1977 /* BMIResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FB3D91E29D6E07A002D1977 /* BMIResultViewController.swift */; };
+		8FF2065E29E557A5003AB315 /* BMI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF2065D29E557A5003AB315 /* BMI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F10BC7C29E2AE7800C28067 /* BMICalculatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICalculatorManager.swift; sourceTree = "<group>"; };
 		8F2E44CD29D54B99002D5E95 /* BMICalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMICalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2E44D029D54B99002D5E95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F2E44D229D54B99002D5E95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		8F2E44DC29D54B9B002D5E95 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8F2E44DE29D54B9B002D5E95 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FB3D91E29D6E07A002D1977 /* BMIResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIResultViewController.swift; sourceTree = "<group>"; };
+		8FF2065D29E557A5003AB315 /* BMI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F10BC7729E2ADEA00C28067 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FF2065D29E557A5003AB315 /* BMI.swift */,
+				8F10BC7C29E2AE7800C28067 /* BMICalculatorManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8F10BC7A29E2AE0200C28067 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F2E44D629D54B99002D5E95 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F10BC7B29E2AE0500C28067 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F2E44D429D54B99002D5E95 /* ViewController.swift */,
+				8FB3D91E29D6E07A002D1977 /* BMIResultViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		8F2E44C429D54B99002D5E95 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +88,11 @@
 		8F2E44CF29D54B99002D5E95 /* BMICalculator */ = {
 			isa = PBXGroup;
 			children = (
+				8F10BC7729E2ADEA00C28067 /* Models */,
+				8F10BC7B29E2AE0500C28067 /* Controllers */,
+				8F10BC7A29E2AE0200C28067 /* Views */,
 				8F2E44D029D54B99002D5E95 /* AppDelegate.swift */,
 				8F2E44D229D54B99002D5E95 /* SceneDelegate.swift */,
-				8F2E44D429D54B99002D5E95 /* ViewController.swift */,
-				8FB3D91E29D6E07A002D1977 /* BMIResultViewController.swift */,
-				8F2E44D629D54B99002D5E95 /* Main.storyboard */,
 				8F2E44D929D54B9B002D5E95 /* Assets.xcassets */,
 				8F2E44DB29D54B9B002D5E95 /* LaunchScreen.storyboard */,
 				8F2E44DE29D54B9B002D5E95 /* Info.plist */,
@@ -80,6 +110,7 @@
 				8F2E44C929D54B99002D5E95 /* Sources */,
 				8F2E44CA29D54B99002D5E95 /* Frameworks */,
 				8F2E44CB29D54B99002D5E95 /* Resources */,
+				8FF2065B29E52E79003AB315 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -136,6 +167,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8FF2065B29E52E79003AB315 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8F2E44C929D54B99002D5E95 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -144,6 +195,8 @@
 				8F2E44D529D54B99002D5E95 /* ViewController.swift in Sources */,
 				8F2E44D129D54B99002D5E95 /* AppDelegate.swift in Sources */,
 				8FB3D91F29D6E07A002D1977 /* BMIResultViewController.swift in Sources */,
+				8F10BC7D29E2AE7800C28067 /* BMICalculatorManager.swift in Sources */,
+				8FF2065E29E557A5003AB315 /* BMI.swift in Sources */,
 				8F2E44D329D54B99002D5E95 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
