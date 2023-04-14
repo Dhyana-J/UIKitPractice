@@ -36,12 +36,12 @@ struct UpDownManager {
         previousChoice = userChoiceNumber
     }
     
-    mutating func getGameResultInfo(userChoiceNumber:Int)->(resultText:String,tryCount:Int?){
+    mutating func getGameResultInfo(userChoiceNumber:Int)->(resultText:String,bingoText:String?){
         
         if userChoiceNumber == bingoNumber {
             let currentTryCount = tryCount
             tryCount = 0
-            return ("Bingo🐣",currentTryCount)
+            return ("Bingo🐣","\(currentTryCount)번 만에 맞췄어요😸")
         } else if userChoiceNumber > bingoNumber {
             return ("Down",nil)
         }

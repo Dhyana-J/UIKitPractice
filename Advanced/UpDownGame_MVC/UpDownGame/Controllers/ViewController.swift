@@ -63,11 +63,11 @@ final class ViewController: UIViewController {
     
     private func setGameResultUI(userChoiceNumber:Int){
         let result = upDownManager.getGameResultInfo(userChoiceNumber: userChoiceNumber)
+        let isBingo:Bool = result.bingoText != nil ? true : false
         
-        if let tryCount = result.tryCount {
-            numberLabel.text = "\(tryCount)번 만에 맞췄어요😸"
-        }
         mainLabel.text = result.resultText
+        if isBingo { numberLabel.text = result.bingoText }
+        
     }
     
     
