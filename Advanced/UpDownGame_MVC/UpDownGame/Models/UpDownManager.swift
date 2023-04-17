@@ -42,12 +42,10 @@ struct UpDownManager {
             let currentTryCount = tryCount
             tryCount = 0
             return ("Bingo🐣","\(currentTryCount)번 만에 맞췄어요😸")
-        } else if userChoiceNumber > bingoNumber {
-            return ("Down",nil)
         }
-        else {
-            return ("Up",nil)
-        }
+        
+        return userChoiceNumber > bingoNumber ? ("Down",nil) : ("Up", nil)
+        
     }
     
     
