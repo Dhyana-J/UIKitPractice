@@ -38,37 +38,14 @@ final class LoginViewController: UIViewController {
     }
 
     @objc func loginButtonTapped(){
-        // Tab Bar Controller
-        let tabBarVC = UITabBarController()
         
-        // 첫 번째 화면은 NavigationController로 만든다
-        let vc1 = UINavigationController(rootViewController: FirstViewController())
-        let vc2 = SecondViewController()
-        let vc3 = ThirdViewController()
-        let vc4 = FourthViewController()
-        let vc5 = FifthViewController()
-        
-        // Tab Bar 이름 설정
-        vc1.title = "RED"
-        vc2.title = "ORANGE"
-        vc3.title = "YELLOW"
-        vc4.title = "GREEN"
-        vc5.title = "BLUE"
-        
-        // Tab Bar로 사용하기 위한 ViewController 설정
-        tabBarVC.setViewControllers([vc1,vc2,vc3,vc4,vc5], animated: false)
-        tabBarVC.modalPresentationStyle = .fullScreen
-        tabBarVC.tabBar.backgroundColor = .white
-        
-        // Tab Bar Image 설정
-        guard let items = tabBarVC.tabBar.items else { return }
-        
-        let imageNameArray:[String] = ["square.and.arrow.up","folder","paperplane","doc","note"]
-        for i in 0..<items.count {
-            items[i].image = UIImage(systemName: imageNameArray[i])
+        // 이전 화면의 isLoggedIn 속성에 접근하기
+        if let presentingVC = presentingViewController {
+            let tabBarCon = presentingVC as! UITabBarController // 탭바에 접근하기
+            let nav = tabBarCon.viewControllers?[0] as! UINavigationController // 네비게이션 바에 접근
+            let firstVC = nav.viewControllers[0] as! FirstViewController // FirstVC에 접근
+            firstVC.isLoggedIn.toggle()
         }
-        
-        present(tabBarVC,animated: true)
-        
+        dismiss(animated: true)
     }
 }
