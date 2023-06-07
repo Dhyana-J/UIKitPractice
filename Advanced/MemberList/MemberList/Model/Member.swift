@@ -24,7 +24,6 @@ struct Member {
     
     init(name: String? = nil, age: Int? = nil, phone: String? = nil, address: String? = nil) {
         self.memberId = Member.memberNumbers
-        
         self.name = name
         self.age = age
         self.phone = phone

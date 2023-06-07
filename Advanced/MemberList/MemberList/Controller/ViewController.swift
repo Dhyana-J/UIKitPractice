@@ -12,13 +12,37 @@ final class ViewController: UIViewController {
     private let tableView = UITableView()
     
     var memberListManager = MemberListManager()
+    
+    
+    // navBar plus button
+    lazy var plusButton:UIBarButtonItem = {
+        let btn = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonTapped))
+        return btn
+    }()
+    
 
     override func viewDidLoad() {
+        print("VC")
+        print(#function)
         super.viewDidLoad()
         
         setTableView()
         setupTableViewConstraints()
         setupNavigationBar()
+        setupUI()
+        setupData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    private func setupData(){
+        memberListManager.requestMemberData()
+    }
+    
+    private func setupUI(){
+        view.backgroundColor = .white
     }
     
     private func setTableView(){
@@ -29,9 +53,6 @@ final class ViewController: UIViewController {
         
     }
     
-    private func setupUI(){
-        view.backgroundColor = .white
-    }
     
     //MARK: - AutoLayout Setting
     private func setupTableViewConstraints(){
@@ -56,8 +77,16 @@ final class ViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.tintColor = .blue
-
         
+        // right side of navBar setting
+        self.navigationItem.rightBarButtonItem = self.plusButton
+    }
+    
+    
+    @objc private func plusButtonTapped(){
+        let detailVC = DetailViewController()
+        show(detailVC, sender: nil)
+//        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 
 }
@@ -78,7 +107,11 @@ extension ViewController:UITableViewDataSource {
 
 extension ViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailViewController()
+        detailVC.member = memberListManager[indexPath.row]
         
+        show(detailVC, sender: self)
+//        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 

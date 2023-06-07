@@ -11,11 +11,15 @@ struct MemberListManager {
     
     private var memberList:[Member] = []
     
-    init() {
-        makeMemberListData()
-    }
     
-    private mutating func makeMemberListData(){
+    // 초기화 시점에 데이터세팅하면 memberId가 꼬인다.
+    // VC에서 MembereListManager가 여러번 초기화되면서 Member의 멤버변수 memberNumbers가 올라버리는 문제
+//    init() {
+//        requestMemberData()
+//    }
+    
+    mutating func requestMemberData(){
+        print(#function)
         memberList = [
             Member(name: "홍길동", age: 20, phone: "010-1111-2222", address: "서울"),
             Member(name: "임꺽정", age: 23, phone: "010-2222-3333", address: "서울"),
@@ -35,8 +39,10 @@ struct MemberListManager {
         memberList.append(member)
     }
     
-    mutating func updateMemberInfo(index:Int, _ member:Member){
-        memberList[index] = member
+    mutating func updateMemberInfo(id:Int, _ member:Member){
+        print(memberList.count)
+        print("id is \(id)")
+        memberList[id] = member
     }
     
     subscript(index:Int)->Member {
