@@ -15,7 +15,8 @@ struct MemberListManager {
     // 초기화 시점에 데이터세팅하면 memberId가 꼬인다.
     // VC에서 MembereListManager가 여러번 초기화되면서 Member의 멤버변수 memberNumbers가 올라버리는 문제
 //    init() {
-//        requestMemberData()
+//        print(#function)
+//        self.requestMemberData()
 //    }
     
     mutating func requestMemberData(){

@@ -244,7 +244,7 @@ final class DetailView: UIView {
     
     
     //MARK: - Notification
-    func setNotification(){
+    func setNotification(){ // Set up observers for specific events
         NotificationCenter.default.addObserver(self, selector: #selector(moveUpAction), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(moveDownAction), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -308,6 +308,7 @@ final class DetailView: UIView {
         }
     }
     
+    //키보드 사용 시 키보드 바깥 화면 터치하면 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.endEditing(true)
     }
@@ -324,6 +325,6 @@ final class DetailView: UIView {
 
 extension DetailView:UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return textField != memberIdTextField
+        return textField != memberIdTextField // make unable to modify memberId
     }
 }

@@ -5,6 +5,7 @@
 //  Created by Kaala on 2023/05/31.
 //
 
+import PhotosUI
 import UIKit
 
 final class DetailViewController: UIViewController {
@@ -20,6 +21,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         setData()
         setButtonAction()
+        setupTapGestures()
     }
     
     private func setData(){
@@ -78,6 +80,31 @@ final class DetailViewController: UIViewController {
         
     }
     
+    //MARK: - Image View Functions
+    private func setupTapGestures(){
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpImageView))
+        detailView.mainImageView.addGestureRecognizer(tapGesture)
+        detailView.mainImageView.isUserInteractionEnabled = true
+    }
+    
+    
+    @objc private func touchUpImageView(){
+        print("Image View Touched")
+        setupImagePicker()
+    }
+    
+    private func setupImagePicker(){
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 0
+        config.filter = .any(of: [.images,.videos])
+        
+        let picker = PHPickerViewController(configuration: config)
+        picker.delegate = self
+        self.present(picker, animated: true)
+    }
+    
+    
+    
     deinit {
         print("pop detailVC")
     }
@@ -85,4 +112,26 @@ final class DetailViewController: UIViewController {
     
     
 
+}
+
+extension DetailViewController:PHPickerViewControllerDelegate {
+    
+    //method called after pick photo
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        if let itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { image, error in
+                DispatchQueue.main.async { // 화면을 그리는 동작들은 메인 스레드에서!
+                    self.detailView.mainImageView.image = image as? UIImage
+                }
+            }
+        } else {
+            print("failed to load image")
+        }
+        
+    }
+    
+    
 }

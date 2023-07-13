@@ -11,8 +11,8 @@ final class ViewController: UIViewController {
     
     private let tableView = UITableView()
     
-    var memberListManager = MemberListManager()
-    
+    var memberListManager:MemberListManager = MemberListManager()
+
     
     // navBar plus button
     lazy var plusButton:UIBarButtonItem = {
@@ -20,7 +20,6 @@ final class ViewController: UIViewController {
         return btn
     }()
     
-
     override func viewDidLoad() {
         print("VC")
         print(#function)
