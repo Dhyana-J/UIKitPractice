@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol MemberDelegate:AnyObject { // AnyObject를 통해 클래스만 채택할 수 있도록 해준다. weak 사용을 위함
+    func addNewMember(_ member:Member)
+    func update(index: Int, _ member:Member)
+}
+
 struct Member {
     
     lazy var memberImage:UIImage? = {

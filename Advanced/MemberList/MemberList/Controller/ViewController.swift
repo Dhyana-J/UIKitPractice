@@ -12,7 +12,7 @@ final class ViewController: UIViewController {
     private let tableView = UITableView()
     
     var memberListManager:MemberListManager = MemberListManager()
-
+    
     
     // navBar plus button
     lazy var plusButton:UIBarButtonItem = {
@@ -32,9 +32,9 @@ final class ViewController: UIViewController {
         setupData()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
+//    override func viewWillAppear(_ animated: Bool) { // Custom Delegate Pattern 적용 시에는 필요 없음
+//        tableView.reloadData()
+//    }
     
     private func setupData(){
         memberListManager.requestMemberData()
@@ -84,10 +84,11 @@ final class ViewController: UIViewController {
     
     @objc private func plusButtonTapped(){
         let detailVC = DetailViewController()
+        detailVC.delegate = self
         show(detailVC, sender: nil)
-//        self.navigationController?.pushViewController(detailVC, animated: true)
+        //        self.navigationController?.pushViewController(detailVC, animated: true)
     }
-
+    
 }
 
 extension ViewController:UITableViewDataSource {
@@ -107,10 +108,25 @@ extension ViewController:UITableViewDataSource {
 extension ViewController:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = DetailViewController()
-        detailVC.member = memberListManager[indexPath.row]
+        detailVC.delegate = self
         
+        detailVC.member = memberListManager[indexPath.row]
         show(detailVC, sender: self)
-//        navigationController?.pushViewController(detailVC, animated: true)
+        //        navigationController?.pushViewController(detailVC, animated: true)
     }
+}
+
+extension ViewController:MemberDelegate {
+    func addNewMember(_ member: Member) {
+        memberListManager.addMember(member)
+        tableView.reloadData()
+    }
+    
+    func update(index: Int, _ member: Member) {
+        memberListManager.updateMemberInfo(id: index, member)
+        tableView.reloadData()
+    }
+    
+    
 }
 

@@ -11,12 +11,15 @@ import UIKit
 final class DetailViewController: UIViewController {
     
     private let detailView = DetailView()
+    
+    weak var delegate: MemberDelegate? // MemberDelegate를 채택한 타입만 delegate 가능, weak으로 강한 순환참조 방지, RC증가 안시킴
+    
     var member:Member?
     
     override func loadView() {
         view = detailView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setData()
@@ -47,12 +50,12 @@ final class DetailViewController: UIViewController {
             
             
             // 1. non-delegate implememtation
-            let index = navigationController!.viewControllers.count - 2 // 현재 화면 이전 화면에 접근할 것이니 -2
-            let vc = navigationController?.viewControllers[index] as! ViewController
-            vc.memberListManager.addMember(newMember)
+            //            let index = navigationController!.viewControllers.count - 2 // 현재 화면 이전 화면에 접근할 것이니 -2
+            //            let vc = navigationController?.viewControllers[index] as! ViewController
+            //            vc.memberListManager.addMember(newMember)
             
             // 2. delegate implememtation
-//            delegate?.addNewMember(newMember)
+            delegate?.addNewMember(newMember)
             
         } else {
             // Update member screen
@@ -64,16 +67,14 @@ final class DetailViewController: UIViewController {
             member!.phone = detailView.phoneNumberTextField.text ?? ""
             member!.address = detailView.addressTextField.text ?? ""
             
-//            detailView.member = member // ? what is this for?
             
             // 1. non-delegate implememtation
-            let index = navigationController!.viewControllers.count - 2 // 현재 화면 이전 화면에 접근할 것이니 -2
-            let vc = navigationController?.viewControllers[index] as! ViewController
-            
-            vc.memberListManager.updateMemberInfo(id: memberId, member!)
+            //            let index = navigationController!.viewControllers.count - 2 // 현재 화면 이전 화면에 접근할 것이니 -2
+            //            let vc = navigationController?.viewControllers[index] as! ViewController
+            //            vc.memberListManager.updateMemberInfo(id: memberId, member!)
             
             // 2. delegate implememtation
-//            delegate?.update(index:memberId,member!)
+            delegate?.update(index:memberId,member!)
         }
         
         self.navigationController?.popViewController(animated: true)
@@ -111,7 +112,7 @@ final class DetailViewController: UIViewController {
     
     
     
-
+    
 }
 
 extension DetailViewController:PHPickerViewControllerDelegate {
